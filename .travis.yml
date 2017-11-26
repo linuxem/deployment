@@ -6,7 +6,7 @@ branches:
   only:
   - master
 install:
-- npm --registry http://npmhkube.ddns.net:4873 install
+- npm install
 cache:
   directories:
   - node_modules
