@@ -1,10 +1,10 @@
 {
   "name": "deployment",
   "version": "1.0.0",
-  "description": "1. start minikube   `$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/`   `$ curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/`   `$ minikube start --cpus 3 --memory=8192 --insecure-registry localhost:5000` 2. to launch the dashboard   `minikube dashboard` 3. setup local registry   storage:   `$ sudo mkdir -p /home/storage`   `$ chown -R $USER /home/storage`   `$ eval $(minikube docker-env)` this sets the system to use the minikube docker deamon   `$ kubectl apply -f helpers/registry.yml` 4. now you can tag and push images to the registry as `localhost:5000/sound/repo:vXXX`",
+  "description": "deployment for hkube",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
   "keywords": [],
   "author": "",
