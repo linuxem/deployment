@@ -21,11 +21,6 @@ spec:
           image: 'hkube/api-server:latest'
           ports:
             - containerPort: 3000
-          env:
-            - name: BASE_URL_HOST
-              value: 192.168.99.100
-            - name: BASE_URL_PORT
-              value: '30003'
 ---
 kind: Service
 apiVersion: v1
