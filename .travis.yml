@@ -20,10 +20,10 @@ after_success:
 - git checkout -b version-branch
 - npm version patch -m "$(git log -1 --pretty=%B) .... bump version [skip ci]"
 - git push origin version-branch:master --follow-tags
-after_deploy:
 - curl -X POST -H 'accept:application/json'  -H "authorization:token ${TRAVIS_API_TOKEN}"
   -H 'content-type:application/json' -H 'travis-api-version:3' -d "{\"request\":{\"branch\":\"master\",\"message\":\"triggered
   by ${TRAVIS_REPO_SLUG}\"}}" "https://api.travis-ci.org/repo/kube-HPC%2Frelease-manager/requests"
+
 env:
   global:
   - secure: rFYPS4NzvfgFfa1aBpiu9FK2KMV2B3uYWqHhGgtKZh5mKZ8+N2kqoTlWJ/CwB2NM7dLaVp45Zwi6Urimzhto5EtYmAIHAmlWG5peyQyFlZMDvjauCx5HhJvdEK98G1P90TAdeTC5K6zAbftmI5SY9tnTItF+jUIldmfxJvqly7y/16EPZLH0CiCxNF3nDizS97r+jGWPOWT5u62S7I9cQ2LHdIcR5MrllYQfLYNfMPAkUPuXeb3BoYj8KVCfCCnrR5t1JDHsHpVZAyBYuyMxHbAaBDhSDkQYEOey9inI+fgCFAxNpy9SA766gQKw/DWrcoZKwipxTx4gl03QhiXB1JeXiwAN4xi21h5jV0tkestqF7XemhDXgJroXnw3rGjMMsPRpy+DIAaydiA96dQZXzOc/2RBr9yZCvZoIkrD3hFfSDaCmSjMYjaHIqXpHeiYGNLytyQxkrGqUrDC+eI8+GsoucVkxz3c+d6dELdnbzRpQXZ6C3ZcrY0PnaX1RX7QqoDQ6zKaFN/UWNoxg+bY2guYEKOYJexyA4bICQid0HM9UI/EENn78sNbtKyhdU8Z1wB3tcWeuDgzR3HfQ3Z/IiZZx2RnbTkQ0KuUeXfZ0Sx7D+ybyO8BFlVi52XuhZRgwbzzrxh69MSYwHuhXauD+4y51W79iu8WRKxAY8a+73s=
