@@ -1,0 +1,41 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: webhook-stub-ui
+  labels:
+    app: webhook-stub-ui
+    group: hkube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webhook-stub-ui
+  template:
+    metadata:
+      labels:
+        app: webhook-stub-ui
+        group: hkube
+    spec:
+      containers:
+        - name: webhook-stub-ui
+          image: 'hkube/webhook-stub-ui:latest'
+          ports:
+            - containerPort: 3002
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: webhook-stub-ui
+  labels:
+    app: webhook-stub-ui
+    group: hkube
+spec:
+  selector:
+    app: webhook-stub-ui
+  ports:
+    - name: server
+      protocol: TCP
+      port: 3002
+      targetPort: 3002
+      nodePort: 30002
+  type: NodePort

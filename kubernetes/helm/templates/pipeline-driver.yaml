@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: pipeline-driver
+  labels:
+    app: pipeline-driver
+    group: sound-factory
+spec:
+  replicas: {{ default 1 .Values.PipelineDriver.Replicas }}
+  selector:
+    matchLabels:
+      app: pipeline-driver
+  template:
+    metadata:
+      labels:
+        app: pipeline-driver
+        group: sound-factory
+    spec:
+      containers:
+      - name: pipeline-driver
+        image: {{.Values.imageRegistry}}/sound/pipeline-driver:{{default "latest" .Values.PipelineDriver.version }}
+

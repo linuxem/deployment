@@ -1,0 +1,7 @@
+imageRegistry: localhost:5000
+ApiServer:
+  version: "latest"
+  nodePort: 30001
+
+PipelineDriver:
+  xxx: 1

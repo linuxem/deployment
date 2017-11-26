@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: pipeline-driver
+  labels:
+    app: pipeline-driver
+    group: hkube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pipeline-driver
+  template:
+    metadata:
+      labels:
+        app: pipeline-driver
+        group: hkube
+    spec:
+      containers:
+        - name: pipeline-driver
+          image: 'hkube/pipeline-driver:latest'

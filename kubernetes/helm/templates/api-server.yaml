@@ -1,0 +1,42 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: api-server
+  labels:
+    app: api-server
+    group: sound-factory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-server
+  template:
+    metadata:
+      labels:
+        app: api-server
+        group: sound-factory
+    spec:
+      containers:
+      - name: api-server
+        image: {{.Values.imageRegistry}}/sound/api-server:{{default "latest" .Values.ApiServer.version}}
+        ports:
+        - containerPort: 3000
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: api-service
+  labels:
+    app: api-server
+    group: sound-factory
+spec:
+  selector:
+    app: api-server
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+    nodePort: {{.Values.ApiServer.nodePort}}
+  type: NodePort

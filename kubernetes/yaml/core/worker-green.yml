@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: worker-green
+  labels:
+    app: worker-green
+    group: hkube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker-green
+  template:
+    metadata:
+      labels:
+        app: worker-green
+        group: hkube
+    spec:
+      containers:
+        - name: worker
+          image: 'hkube/worker:latest'
+          env:
+            - name: JOB_TYPE
+              value: green-alg
+        - name: algorunner
+          image: 'hkube/algo-package:latest'
