@@ -23,4 +23,4 @@ spec:
             - name: JOB_TYPE
               value: black-alg
         - name: algorunner
-          image: 'hkube/algo-package:latest'
+          image: 'hkube/algorithm-example:latest'
