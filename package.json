@@ -1,6 +1,6 @@
 {
   "name": "deployment",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "deployment for hkube",
   "main": "index.js",
   "scripts": {
