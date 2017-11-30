@@ -44,7 +44,7 @@ spec:
         - name: regsecret
       containers:
         - name: etcd-ui
-          image: 'registry.gitlab.com/greenapes/hkube/registry/etcd-ui:latest'
+          image: 'hkube/etcd-ui:latest'
           ports:
             - containerPort: 8000
 ---
