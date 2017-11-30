@@ -4,6 +4,7 @@ metadata:
   name: pipeline-driver
   labels:
     app: pipeline-driver
+    scale-group: pipeline-driver
     group: hkube
 spec:
   replicas: 1

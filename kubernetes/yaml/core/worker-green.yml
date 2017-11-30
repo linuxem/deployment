@@ -4,6 +4,7 @@ metadata:
   name: worker-green
   labels:
     app: worker-green
+    scale-group: worker
     group: hkube
 spec:
   replicas: 1

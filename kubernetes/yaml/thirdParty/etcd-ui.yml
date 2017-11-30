@@ -16,8 +16,6 @@ spec:
         app: etcd-ui
         group: hkube
     spec:
-      imagePullSecrets:
-        - name: regsecret
       containers:
         - name: etcd-ui
           image: 'hkube/etcd-ui:latest'

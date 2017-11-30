@@ -4,6 +4,7 @@ metadata:
   name: worker-yellow
   labels:
     app: worker-yellow
+    scale-group: worker
     group: hkube
 spec:
   replicas: 1
